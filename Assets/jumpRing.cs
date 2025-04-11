@@ -33,7 +33,7 @@ public class RingExpander : MonoBehaviour
         {
             Vector3 mousePos = Input.mousePosition;
             mousePos.z = Mathf.Abs(Camera.main.transform.position.z);
-            startPos = frogPos.position;
+            startPos = transform.position;
             radius = 0f;
             expanding = true;
             lineRenderer.enabled = true;
@@ -47,18 +47,20 @@ public class RingExpander : MonoBehaviour
             radius += expandSpeed * Time.deltaTime;
 
             Vector3 mouseWorld = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            //Vector2 dir = (mouseWorld - startPos).normalized;
-            // Get angle direction from center as a float
             float angle = Mathf.Atan2(mouseWorld.y - startPos.y, mouseWorld.x - startPos.x) * Mathf.Rad2Deg;
 
 
-            if (radius >= maxRadius || Input.GetMouseButtonUp(0))
+            if (radius >= maxRadius || Input.GetMouseButtonUp(0)) //go ahead and jump (jump!)
             {
                 expanding = false;
                 lineRenderer.enabled = false;
                 if (directionIndicator != null) directionIndicator.gameObject.SetActive(false);
-
-                //Debug.Log($"Cursor angle direction from center: {dir}");
+                if (Input.GetMouseButtonUp(0))
+                {
+                    // Jump logic here
+                    // Example: frogPos.position = new Vector3(startPos.x + Mathf.Cos(angle * Mathf.Deg2Rad) * radius, startPos.y + Mathf.Sin(angle * Mathf.Deg2Rad) * radius, frogPos.position.z);
+                    frogPos.position = new Vector3(startPos.x + Mathf.Cos(angle * Mathf.Deg2Rad) * radius, startPos.y + Mathf.Sin(angle * Mathf.Deg2Rad) * radius, frogPos.position.z);
+                }
             }
 
             UpdateRing();
