@@ -1,7 +1,7 @@
 ========= THE FROG GAME ==========
 
 FRIDAY OBJECTIVE: Get froggy movement
-1. Make Charging circle
+1. Make Charging circle [DONE]
 2. Add frog to charging circle
     Create frog Object
     circle becomes child of frog
@@ -28,3 +28,14 @@ FRIDAY OBJECTIVE: Get froggy movement
 7. Camera Movement (Can move to Saturday)
     (No witch yet so no autoscroll)
     Either follow player directly or pan camera upon landing
+
+----- SPRITE CHECKLIST -----
+1. [Nothing]
+2. frog
+3. Frog charge, jump, and land animations
+4. Lilypad, submerged frog
+5. Frog Swim animation, Mouse mash indicator, frog splash
+6. [All programming]
+7. [All programming]
+
+[5,6,7 can be done in parallel, any order]
