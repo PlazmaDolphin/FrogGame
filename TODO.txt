@@ -1,8 +1,8 @@
 ========= THE FROG GAME ==========
 
 FRIDAY OBJECTIVE: Get froggy movement
-1. Make Charging circle [DONE]
-2. Add frog to charging circle
+1. [DONE] Make Charging circle
+2. [DONE] Add frog to charging circle
     Create frog Object
     circle becomes child of frog
     circle startPos always center of frog

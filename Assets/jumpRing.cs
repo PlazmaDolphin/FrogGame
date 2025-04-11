@@ -3,7 +3,7 @@ using UnityEngine;
 public class RingExpander : MonoBehaviour
 {
     public LineRenderer lineRenderer;
-    public Transform directionIndicator; // Assign a small circle sprite in the Inspector
+    public Transform directionIndicator, frogPos; // Assign a small circle sprite in the Inspector
     private float thickness = 0.05f;
     private int segments = 100;
     private float expandSpeed = 4f;
@@ -33,11 +33,7 @@ public class RingExpander : MonoBehaviour
         {
             Vector3 mousePos = Input.mousePosition;
             mousePos.z = Mathf.Abs(Camera.main.transform.position.z);
-            Vector3 worldPos = Camera.main.ScreenToWorldPoint(mousePos);
-
-            startPos = new Vector3(worldPos.x, worldPos.y, 0f);
-            transform.position = startPos;
-
+            startPos = frogPos.position;
             radius = 0f;
             expanding = true;
             lineRenderer.enabled = true;
