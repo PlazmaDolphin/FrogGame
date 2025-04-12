@@ -1,7 +1,41 @@
-Jump animation:
+========= THE FROG GAME ==========
 
-lilyPad: 
+FRIDAY OBJECTIVE: Get froggy movement
+1. [DONE] Make Charging circle
+2. [DONE] Add frog to charging circle
+    Create frog Object
+    circle becomes child of frog
+    circle startPos always center of frog
+3. Move frog to new location on release
+    teleport and verify location makes sense
+    scrap that, smooth transition in an arc
+    not allowed to charge new jump while jumping
+    Charge/Jump animation (can move to Saturday)
+4. Check what froggy is on
+    If lilypad, allow new jump
+    If water, slowly swim in direction of mouse (replace on No. 5)
+5. Water Panic Movement
+    Mash LMB / RMB in sequence to swim where mouse points
+    Add water land / swim anims
+6. Level Generation
+    Make lilypad Prefab
+    Generate random lilypad placement
+    Ensure lilypads are spaced far enough apart
+    Tile the background
+    Generate further than player FOV
+    Generate more upon moving to new lily
+    DO NOT REPLACE EXISTING MAP GENERATION
+7. Camera Movement (Can move to Saturday)
+    (No witch yet so no autoscroll)
+    Either follow player directly or pan camera upon landing
 
-Background: 
+----- SPRITE CHECKLIST -----
+1. [Nothing]
+2. frog
+3. Frog charge, jump, and land animations
+4. Lilypad, submerged frog
+5. Frog Swim animation, Mouse mash indicator, frog splash
+6. [All programming]
+7. [All programming]
 
-Water:
+[5,6,7 can be done in parallel, any order]
