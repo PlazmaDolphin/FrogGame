@@ -1,5 +1,94 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2072095461221961941
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8226230304885655987}
+  - component: {fileID: 2428248265295331894}
+  m_Layer: 0
+  m_Name: spawnCollider
+  m_TagString: lilypadSpawnRepel
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8226230304885655987
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2072095461221961941}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1965358631449399593}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!60 &2428248265295331894
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2072095461221961941}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.7313473, y: 1.6071372}
+      - {x: -0.045215726, y: 1.7605499}
+      - {x: -0.85020655, y: 1.5818276}
+      - {x: -1.360167, y: 1.2208258}
+      - {x: -1.5247835, y: 0.48136348}
+      - {x: -1.1666324, y: -0.17875779}
+      - {x: -0.023882687, y: -0.4905007}
+      - {x: 1.2369932, y: -0.15379542}
+      - {x: 1.5677716, y: 0.5233536}
+      - {x: 1.4506308, y: 1.2850479}
+  m_UseDelaunayMesh: 0
 --- !u!1001 &8508388885933485604
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -58,7 +147,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 7878350319992209165, guid: 5c2409d4ad1240e40be66496f89b2d0c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8226230304885655987}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: -2253911629886400664, guid: 5c2409d4ad1240e40be66496f89b2d0c, type: 3}
       insertIndex: -1
@@ -141,3 +233,8 @@ PolygonCollider2D:
       - {x: 0.4841492, y: 0.24206541}
       - {x: 0.67075217, y: 0.3182923}
   m_UseDelaunayMesh: 0
+--- !u!4 &1965358631449399593 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7878350319992209165, guid: 5c2409d4ad1240e40be66496f89b2d0c, type: 3}
+  m_PrefabInstance: {fileID: 8508388885933485604}
+  m_PrefabAsset: {fileID: 0}

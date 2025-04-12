@@ -4,13 +4,13 @@ using UnityEngine;
 public class ChunkGenerator : MonoBehaviour
 {
     public GameObject theLilypad;
-    public Vector2 areaSize = new Vector2(20f, 10f);
+    private Vector2 areaSize = new Vector2(20f, 10f);
     public static float density = 10; // Number of lilypads to spawn
     public int maxAttemptsPerLilypad = 20;
     public float meanScale = 1f;
     public float scaleStdDev = 0.2f;
 
-    void Start()
+    public void Start()
     {
         for (int i = 0; i < Mathf.RoundToInt(density); i++)
         {
@@ -30,7 +30,7 @@ public class ChunkGenerator : MonoBehaviour
 
                 foreach (Collider2D hit in hits)
                 {
-                    if (hit.CompareTag("Lilypad"))
+                    if (hit.CompareTag("lilypadSpawnRepel"))
                     {
                         collision = true;
                         break;
