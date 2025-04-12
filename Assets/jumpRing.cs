@@ -12,12 +12,12 @@ public class RingExpander : MonoBehaviour
     private float radius = 0f;
     private bool expanding = false;
     private Vector3 startPos;
-
     void Start()
     {
         lineRenderer.material = new Material(Shader.Find("Sprites/Default"));
-        lineRenderer.startColor = Color.green;
-        lineRenderer.endColor = Color.green;
+        //change color to harcoded transparent red
+        lineRenderer.startColor = new Color(0.2f, 0.2f, 0.2f, 0.5f); // Transparent grey
+        lineRenderer.endColor = new Color(0.2f, 0.2f, 0.2f, 0.5f); // Transparent grey
         lineRenderer.positionCount = segments + 1;
         lineRenderer.loop = true;
         lineRenderer.useWorldSpace = false;
