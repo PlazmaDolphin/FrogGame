@@ -1,0 +1,137 @@
+========= THE FROG GAME ==========
+
+FRIDAY OBJECTIVE: Get froggy movement
+1. [DONE] Make Charging circle
+2. [DONE] Add frog to charging circle
+    Create frog Object
+    circle becomes child of frog
+    circle startPos always center of frog
+3. [DONE] Move frog to new location on release
+    teleport and verify location makes sense
+    scrap that, smooth transition in an arc
+    not allowed to charge new jump while jumping
+    Charge/Jump animation [SeanDoThis]
+4. [DONE] Check what froggy is on
+    If lilypad, allow new jump
+    If water, slowly swim in direction of mouse (replace on No. 5)
+5. [DONE] Water Panic Movement
+    Mash LMB / RMB in sequence to swim where mouse points
+    Add water land / swim anims [SeanDoThis]
+6. Level Generation
+    Make lilypad Prefab
+    Generate random lilypad placement
+    Ensure lilypads are spaced far enough apart
+    Tile the background
+    Generate further than player FOV
+    Generate more upon moving to new lily
+    Generate in chunks to ensure no overlaps
+    Modify lilypad density and size with distance traveled
+7. Camera Movement (Can move to Saturday)
+    (No witch yet so no autoscroll)
+    Either follow player directly or pan camera upon landing
+    Debug position Indicator
+
+----- SPRITE CHECKLIST FRIDAY -----
+1. [Nothing]
+2. frog [DONE]
+3. Frog charge, jump, and land animations
+4. Lilypad, submerged frog
+5. Frog Swim animation, Mouse mash indicator [SeanDoThis], frog splash
+6. [All programming]
+7. [All programming]
+
+[5,6,7 can be done in parallel, any order]
+
+SATURDAY OBJECTIVE: Get Barebones Game
+1. Make the witch
+    Make witch sprite
+    Witch [Moves towards player | moves to the right]
+    If witch touches player, player loses [Just indicate it for now]
+2. Camera Witch movement
+    When witch approaching, sidescroll to reveal more level to the right
+    If witch outside of screen, [put witch as a faraway icon | indicate distance via audio later on]
+3. Win condition
+    Achieve some distance, OR
+    No win condition, OR
+    Get to a special point, OR
+    Collect items and defeat witch
+4. Add audio
+    [BG Music | Ambience]
+    If ambience, gets progressively more threatening as witch approaches
+    SFX For:
+        Jump (Different SFX depending on charge level?)
+        Charge
+        Land (on lilypad)
+        Splash
+        Swim
+        Witch Cackle (dunno where to use it but ill use it somewhere)
+        Witch Capture Sound (figure out what its supposed to be)
+5. Title Screen
+    Figure out name of game
+    [Make title screen art | do live-action cutscene]
+    Start Game Button
+    Quit Button
+    Credits?
+6. Game Over Screen
+    Display progress (distance | items)
+    Button to main menu
+    Button to retry
+7. Opening [OPTIONAL]
+    [part of title screen | its own thang]
+    [Live action | animation | pixel art slideshow]
+    Subtitles?
+    Narration?
+
+SUNDAY OBJECTIVE: Add new mechanics to make it more fun, sumbit to itch.io
+NOT ALL SUNDAY OBJECTIVES MUST (or should) BE IMPLEMENTED
+1. Make Walls
+    Figure out what thematically makes sense for a wall
+    If player swims to wall, block movement
+    If player jumps to wall, [cancel jump | cut jump short | 
+        make a bonk effect and fall down | 
+        auto-jump to kick player out (if the surface hurts froggy)]
+    If player jumps through wall, [Allow it if legal target | cancel jump |
+        same as jump to wall | bonk]
+2. Eat Flies [(#2 or #6) AND #3 CODEPENDENT]
+    (This will have no practical function until No. 3)
+    Make Fly sprite
+    Make Fly prefab
+    Make fly go in random directions within a circle
+    Frog RMB will:
+        Quickly Extend and retract Toungue to eat fly (limited range)
+        Croak.wav if fly not targeted with mouse (spam this for a fun time)
+3. Make Energy Meter [(#2 or #6) AND #3 CODEPENDENT]
+    Jumping Drains according to jump distance
+    Swimming Drains it
+    Eating Flies regains it
+    Passive regen
+    No energy = No movement
+    No energy in water = move REALLY slowly
+    No energy + Witch Nearby = You're SOL my friend
+4. Make fake Lilypad
+    An illusion created by the witch
+    Very similar look to regular lilypad
+    Landing on this [submerges you | inhibits jump charge and energy usage]
+    Witch voiceline when landing ("You're just as smart as you look (cackle)")
+5. Make Super Lilypads
+    make sprite (color swap or icon on pad)
+    Increases jump range/charge speed for lower energy cost
+    Zooms camera out to reveal more of the world
+6. Make Recharge Lilypad [REQS #3]
+    make sprite (color swap / icon)
+    Alternative to #2 if it takes too long
+    Dramatically increases passive energy regen
+    [Only regens when idle (not charging) | recharges set amount once upon landing |
+        recharges the entire time]
+7. Correct Path / Dead Ends [REQS #1]
+    To reach the end, you must follow the correct branching paths
+    Correct path indicated by [Arrow | Confusing Text Generator from bomb game |
+        not indicated | something else?]
+    When hitting dead end, [you're just SOL | Super Lilypad gets you back to main course |
+        something else gets you on correct path, but you lose all energy | 
+        gotta go back, but dead end is shallow so you could still make it]
+
+END OF NEW MECHANICS AT 2000
+END OF CODE CHANGES / SPRITE CHANGES / FIXES AT 2200
+FINAL BUILD NLT 2230
+SUBMIT TO ITCH.IO NLT 2300
