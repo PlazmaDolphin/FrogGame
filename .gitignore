@@ -16,7 +16,6 @@ UserSettings/
 *.pidb
 *.svd
 *.pdb
-*.meta
 .vscode/
 
 # Ignore PlayMode and Editor-Only Player logs

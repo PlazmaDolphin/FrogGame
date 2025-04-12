@@ -6,7 +6,7 @@ public class RingExpander : MonoBehaviour
     public Transform directionIndicator, frogPos; // Assign a small circle sprite in the Inspector
     private float thickness = 0.05f;
     private int segments = 100;
-    private float expandSpeed = 4f;
+    private float expandSpeed = 2.5f;
     private float maxRadius = 12f;
 
     private float radius = 0f;
@@ -59,7 +59,7 @@ public class RingExpander : MonoBehaviour
                 {
                     // Jump logic here
                     // Example: frogPos.position = new Vector3(startPos.x + Mathf.Cos(angle * Mathf.Deg2Rad) * radius, startPos.y + Mathf.Sin(angle * Mathf.Deg2Rad) * radius, frogPos.position.z);
-                    frogPos.position = new Vector3(startPos.x + Mathf.Cos(angle * Mathf.Deg2Rad) * radius, startPos.y + Mathf.Sin(angle * Mathf.Deg2Rad) * radius, frogPos.position.z);
+                    frogPos.position = new Vector3(startPos.x + Mathf.Cos(angle * Mathf.Deg2Rad) * radius*frogPos.localScale.x, startPos.y + Mathf.Sin(angle * Mathf.Deg2Rad) * radius*frogPos.localScale.x, frogPos.position.z);
                 }
             }
 
