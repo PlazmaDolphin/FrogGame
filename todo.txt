@@ -33,9 +33,14 @@ FRIDAY OBJECTIVE: Get froggy movement
 1. [Nothing]
 2. frog
 3. Frog charge, jump, and land animations
-4. Lilypad, submerged frog
+4. Lilypad, submerged frog, background
 5. Frog Swim animation, Mouse mash indicator, frog splash
 6. [All programming]
 7. [All programming]
 
 [5,6,7 can be done in parallel, any order]
+
+
+----- Sunday Checklist :D -----
+
+splash particles 
