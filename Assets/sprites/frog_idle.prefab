@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 733545004884615941}
   - component: {fileID: 1420866271315380801}
   - component: {fileID: 421291778173141462}
+  - component: {fileID: 964309352533472015}
   m_Layer: 0
   m_Name: jumpIndicator
   m_TagString: Untagged
@@ -156,6 +157,20 @@ MonoBehaviour:
   lineRenderer: {fileID: 1420866271315380801}
   directionIndicator: {fileID: 4710982957776448705}
   frogPos: {fileID: 7069870584884997896}
+  jumper: {fileID: 964309352533472015}
+--- !u!114 &964309352533472015
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2239924501415549844}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e90431c5a3aed404d87172734cedf5b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  control: {fileID: 7069870584884997896}
 --- !u!1 &5486640783013275966
 GameObject:
   m_ObjectHideFlags: 0

@@ -4,6 +4,7 @@ public class RingExpander : MonoBehaviour
 {
     public LineRenderer lineRenderer;
     public Transform directionIndicator, frogPos; // Assign a small circle sprite in the Inspector
+    public arcJumper jumper;
     private float thickness = 0.05f;
     private int segments = 100;
     private float expandSpeed = 2.5f;
@@ -29,7 +30,7 @@ public class RingExpander : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && !jumper.IsJumping())
         {
             Vector3 mousePos = Input.mousePosition;
             mousePos.z = Mathf.Abs(Camera.main.transform.position.z);
@@ -59,7 +60,8 @@ public class RingExpander : MonoBehaviour
                 {
                     // Jump logic here
                     // Example: frogPos.position = new Vector3(startPos.x + Mathf.Cos(angle * Mathf.Deg2Rad) * radius, startPos.y + Mathf.Sin(angle * Mathf.Deg2Rad) * radius, frogPos.position.z);
-                    frogPos.position = new Vector3(startPos.x + Mathf.Cos(angle * Mathf.Deg2Rad) * radius*frogPos.localScale.x, startPos.y + Mathf.Sin(angle * Mathf.Deg2Rad) * radius*frogPos.localScale.x, frogPos.position.z);
+                    Vector3 target = new Vector3(startPos.x + Mathf.Cos(angle * Mathf.Deg2Rad) * radius*frogPos.localScale.x, startPos.y + Mathf.Sin(angle * Mathf.Deg2Rad) * radius*frogPos.localScale.x, frogPos.position.z);
+                    jumper.StartJump(frogPos, target);
                 }
             }
 
