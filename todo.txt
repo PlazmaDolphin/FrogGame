@@ -6,16 +6,15 @@ FRIDAY OBJECTIVE: Get froggy movement
     Create frog Object
     circle becomes child of frog
     circle startPos always center of frog
-3. [DONE] Move frog to new location on release
+3. Move frog to new location on release
     teleport and verify location makes sense
     scrap that, smooth transition in an arc
     not allowed to charge new jump while jumping
     Charge/Jump animation (can move to Saturday)
-4. [DONE] Check what froggy is on
+4. Check what froggy is on
     If lilypad, allow new jump
     If water, slowly swim in direction of mouse (replace on No. 5)
 5. Water Panic Movement
-[MOVEMENT DONE, KEYSTROKES/TWEAKING NOT DONE]
     Mash LMB / RMB in sequence to swim where mouse points
     Add water land / swim anims
 6. Level Generation
