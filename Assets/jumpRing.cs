@@ -67,7 +67,7 @@ public class RingExpander : MonoBehaviour
 
             if (directionIndicator != null)
             {
-                directionIndicator.position = startPos + Quaternion.Euler(0, 0, angle) * Vector3.right * radius;
+                directionIndicator.position = startPos + Quaternion.Euler(0, 0, angle) * Vector3.right * radius * frogPos.localScale.x; // Adjust the scale factor as needed
                 //Add a little Z offset to the direction indicator
                 directionIndicator.position -= new Vector3(0, 0, 0.1f);
             }
