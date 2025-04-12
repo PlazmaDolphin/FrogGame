@@ -5,6 +5,7 @@ public class RingExpander : MonoBehaviour
     public LineRenderer lineRenderer;
     public Transform directionIndicator, frogPos; // Assign a small circle sprite in the Inspector
     public arcJumper jumper;
+    public WaterMash waterMash; // Assign the water mash script in the Inspector
     private float thickness = 0.05f;
     private int segments = 100;
     private float expandSpeed = 2.5f;
@@ -30,8 +31,7 @@ public class RingExpander : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0) && !jumper.IsJumping())
-        {
+        if (Input.GetMouseButtonDown(0) && !jumper.IsJumping() && !waterMash.submerged){
             Vector3 mousePos = Input.mousePosition;
             mousePos.z = Mathf.Abs(Camera.main.transform.position.z);
             startPos = transform.position;

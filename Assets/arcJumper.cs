@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class arcJumper : MonoBehaviour
 {
+    public WaterMash waterMash;
     private float baseJumpDuration = 0.5f;
     private float baseArcHeight = 0.2f;
     private float heightMultiplier = 0.25f;
@@ -66,6 +67,7 @@ public class arcJumper : MonoBehaviour
         {
             jumping = false;
             jumpTarget.position = end;
+            waterMash.landCheck(); // Check if the frog is on a lily pad after the jump
         }
     }
 }
