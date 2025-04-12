@@ -6,7 +6,7 @@ FRIDAY OBJECTIVE: Get froggy movement
     Create frog Object
     circle becomes child of frog
     circle startPos always center of frog
-3. [DONE] Move frog to new location on release
+3. Move frog to new location on release
     teleport and verify location makes sense
     scrap that, smooth transition in an arc
     not allowed to charge new jump while jumping
