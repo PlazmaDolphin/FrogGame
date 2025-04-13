@@ -56,8 +56,7 @@ SATURDAY OBJECTIVE: Get Barebones Game
     Get to a special point, OR
     Collect items and defeat witch
 4. Add audio
-    [BG Music | Ambience]
-    If ambience, gets progressively more threatening as witch approaches
+    Ambience gets progressively more threatening as witch approaches
     SFX For:
         Jump (Different SFX depending on charge level?)
         Charge
@@ -132,6 +131,7 @@ NOT ALL SUNDAY OBJECTIVES MUST (or should) BE IMPLEMENTED
         gotta go back, but dead end is shallow so you could still make it]
 
 END OF NEW MECHANICS AT 2000
-END OF CODE CHANGES / SPRITE CHANGES / FIXES AT 2200
+END OF CODE CHANGES / SPRITE CHANGES / FIXES AT 2130
+BUILD 1 AT 2130, TWEAK UNTIL 2215
 FINAL BUILD NLT 2230
 SUBMIT TO ITCH.IO NLT 2300

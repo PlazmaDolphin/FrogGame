@@ -6,9 +6,10 @@ public class RingExpander : MonoBehaviour
     public Transform directionIndicator, frogPos; // Assign a small circle sprite in the Inspector
     public arcJumper jumper;
     public WaterMash waterMash; // Assign the water mash script in the Inspector
+    public AudioSource chargeSFX, jumpSFX;
     private float thickness = 0.05f;
     private int segments = 100;
-    private float expandSpeed = 1.6f;
+    private float expandSpeed = 1.3f;
     private float maxRadius = 2.5f;
 
     private float radius = 0f;
@@ -39,6 +40,7 @@ public class RingExpander : MonoBehaviour
             lineRenderer.startColor = new Color(0.2f, 0.2f, 0.2f, 0.5f); // Transparent grey
             lineRenderer.endColor = new Color(0.2f, 0.2f, 0.2f, 0.5f); // Transparent grey
             UpdateRing();
+            if (chargeSFX != null) chargeSFX.Play();
         }
 
         if (expanding)
@@ -58,6 +60,8 @@ public class RingExpander : MonoBehaviour
                     // Example: frogPos.position = new Vector3(startPos.x + Mathf.Cos(angle * Mathf.Deg2Rad) * radius, startPos.y + Mathf.Sin(angle * Mathf.Deg2Rad) * radius, frogPos.position.z);
                     Vector3 target = new Vector3(startPos.x + Mathf.Cos(angle * Mathf.Deg2Rad) * radius*frogPos.localScale.x, startPos.y + Mathf.Sin(angle * Mathf.Deg2Rad) * radius*frogPos.localScale.x -0.4f, frogPos.position.z);
                     jumper.StartJump(frogPos, target);
+                    if (jumpSFX != null) jumpSFX.Play();
+                    if (chargeSFX != null) chargeSFX.Stop();
                 }
             }
             else if (radius >= maxRadius * 0.9f){
