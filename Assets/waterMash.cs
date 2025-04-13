@@ -11,8 +11,13 @@ public class WaterMash : MonoBehaviour
 
     private float currentSpeed = 0f;
     private float initSmoothSpeed = 0f;
-    public bool submerged = false, stroking = false;
+    public bool submerged = false, stroking = false, recovering = false;
     private float resetTimer = 0f;
+    private float recoverDuration = 0.3f; // How long to jump on lily after submerged
+    private float recoverTimer = 0f;
+    private float recoverDepth = 0.6f; // How far on lily to jump
+    private Vector3 initPos = Vector3.zero;
+    private Vector3 recoverTarget = Vector3.zero;
 
     void Start()
     {
@@ -37,7 +42,6 @@ public class WaterMash : MonoBehaviour
             {
                 stroking = false;
             }
-            Debug.Log("speeding up: " + currentSpeed);
         }
 
         if (submerged)
@@ -49,15 +53,33 @@ public class WaterMash : MonoBehaviour
             frogPos.position += direction * currentSpeed * Time.deltaTime;
 
             currentSpeed *= Mathf.Exp(-decayRate * Time.deltaTime);
-            Debug.Log("slowing down: " + currentSpeed);
 
             if (CheckLilyCollision())
             {
                 Debug.Log("Unsubmerging");
                 submerged = false;
                 currentSpeed = 0f;
+                // BEGIN RECOVERY LERP
+                recoverTimer = 0f;
+                recovering = true;
+                initPos = frogPos.position;
+                // recover position = frog position + direction * recoverDepth
+                float angle = Mathf.Atan2(mousePos.y - initPos.y, mousePos.x - initPos.x) * Mathf.Rad2Deg;
+                recoverTarget = new Vector3(initPos.x + Mathf.Cos(angle * Mathf.Deg2Rad) * recoverDepth, initPos.y + Mathf.Sin(angle * Mathf.Deg2Rad) * recoverDepth, frogPos.position.z);
             }
         }
+        else if (recovering)
+        {
+            recoverTimer += Time.deltaTime / recoverDuration;
+            frogPos.position = Vector3.Lerp(initPos, recoverTarget, recoverTimer);
+            if (recoverTimer >= 1f)
+            {
+                recovering = false;
+                currentSpeed = 0f;
+                recoverTimer = 0f;
+            }
+        }
+
     }
     public bool landCheck(){
         bool onLily = CheckLilyCollision();

@@ -6,10 +6,11 @@ public class RingExpander : MonoBehaviour
     public Transform directionIndicator, frogPos; // Assign a small circle sprite in the Inspector
     public arcJumper jumper;
     public WaterMash waterMash; // Assign the water mash script in the Inspector
+    public AudioSource chargeSFX, jumpSFX;
     private float thickness = 0.05f;
     private int segments = 100;
-    private float expandSpeed = 2.5f;
-    private float maxRadius = 12f;
+    private float expandSpeed = 1.3f;
+    private float maxRadius = 2.5f;
 
     private float radius = 0f;
     private bool expanding = false;
@@ -17,9 +18,6 @@ public class RingExpander : MonoBehaviour
     void Start()
     {
         lineRenderer.material = new Material(Shader.Find("Sprites/Default"));
-        //change color to harcoded transparent red
-        lineRenderer.startColor = new Color(0.2f, 0.2f, 0.2f, 0.5f); // Transparent grey
-        lineRenderer.endColor = new Color(0.2f, 0.2f, 0.2f, 0.5f); // Transparent grey
         lineRenderer.positionCount = segments + 1;
         lineRenderer.loop = true;
         lineRenderer.useWorldSpace = false;
@@ -39,8 +37,10 @@ public class RingExpander : MonoBehaviour
             expanding = true;
             lineRenderer.enabled = true;
             if (directionIndicator != null) directionIndicator.gameObject.SetActive(true);
-
+            lineRenderer.startColor = new Color(0.2f, 0.2f, 0.2f, 0.5f); // Transparent grey
+            lineRenderer.endColor = new Color(0.2f, 0.2f, 0.2f, 0.5f); // Transparent grey
             UpdateRing();
+            if (chargeSFX != null) chargeSFX.Play();
         }
 
         if (expanding)
@@ -49,8 +49,6 @@ public class RingExpander : MonoBehaviour
 
             Vector3 mouseWorld = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             float angle = Mathf.Atan2(mouseWorld.y - startPos.y, mouseWorld.x - startPos.x) * Mathf.Rad2Deg;
-
-
             if (radius >= maxRadius || Input.GetMouseButtonUp(0)) //go ahead and jump (jump!)
             {
                 expanding = false;
@@ -60,9 +58,19 @@ public class RingExpander : MonoBehaviour
                 {
                     // Jump logic here
                     // Example: frogPos.position = new Vector3(startPos.x + Mathf.Cos(angle * Mathf.Deg2Rad) * radius, startPos.y + Mathf.Sin(angle * Mathf.Deg2Rad) * radius, frogPos.position.z);
-                    Vector3 target = new Vector3(startPos.x + Mathf.Cos(angle * Mathf.Deg2Rad) * radius*frogPos.localScale.x, startPos.y + Mathf.Sin(angle * Mathf.Deg2Rad) * radius*frogPos.localScale.x, frogPos.position.z);
+                    Vector3 target = new Vector3(startPos.x + Mathf.Cos(angle * Mathf.Deg2Rad) * radius*frogPos.localScale.x, startPos.y + Mathf.Sin(angle * Mathf.Deg2Rad) * radius*frogPos.localScale.x -0.4f, frogPos.position.z);
                     jumper.StartJump(frogPos, target);
+                    if (jumpSFX != null) jumpSFX.Play();
+                    if (chargeSFX != null) chargeSFX.Stop();
                 }
+            }
+            else if (radius >= maxRadius * 0.9f){
+                lineRenderer.startColor = new Color(1f, 0.2f, 0.2f, 0.5f); // Transparent red
+                lineRenderer.endColor = new Color(1f, 0.2f, 0.2f, 0.5f); // Transparent red
+            }
+            else if (radius >= maxRadius * 0.65f){
+                lineRenderer.startColor = new Color(1f, 1f, 0.2f, 0.5f); // Transparent yellow
+                lineRenderer.endColor = new Color(1f, 1f, 0.2f, 0.5f); // Transparent yellow
             }
 
             UpdateRing();
