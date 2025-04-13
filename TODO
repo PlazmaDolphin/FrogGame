@@ -17,7 +17,7 @@ FRIDAY OBJECTIVE: Get froggy movement
 5. [DONE] Water Panic Movement
     Mash LMB / RMB in sequence to swim where mouse points
     Add water land / swim anims [SeanDoThis]
-6. Level Generation
+6. [DONE] Level Generation
     Make lilypad Prefab
     Generate random lilypad placement
     Ensure lilypads are spaced far enough apart
@@ -25,8 +25,8 @@ FRIDAY OBJECTIVE: Get froggy movement
     Generate further than player FOV
     Generate more upon moving to new lily
     Generate in chunks to ensure no overlaps
-    Modify lilypad density and size with distance traveled
-7. Camera Movement (Can move to Saturday)
+    Modify lilypad density and size with distance traveled [Later]
+7. [DONE] Camera Movement (Can move to Saturday)
     (No witch yet so no autoscroll)
     Either follow player directly or pan camera upon landing
     Debug position Indicator
@@ -43,19 +43,19 @@ FRIDAY OBJECTIVE: Get froggy movement
 [5,6,7 can be done in parallel, any order]
 
 SATURDAY OBJECTIVE: Get Barebones Game
-1. Make the witch
+1. [DONE] Make the witch
     Make witch sprite
-    Witch [Moves towards player | moves to the right]
+    Witch moves to the right
     If witch touches player, player loses [Just indicate it for now]
-2. Camera Witch movement
+2. [DONE] Camera Witch movement
     When witch approaching, sidescroll to reveal more level to the right
     If witch outside of screen, [put witch as a faraway icon | indicate distance via audio later on]
-3. Win condition
+3. [DONE] Win condition
     Achieve some distance, OR
     No win condition, OR
     Get to a special point, OR
     Collect items and defeat witch
-4. Add audio
+4. [DONE] Add audio
     [BG Music | Ambience]
     If ambience, gets progressively more threatening as witch approaches
     SFX For:
@@ -64,15 +64,16 @@ SATURDAY OBJECTIVE: Get Barebones Game
         Land (on lilypad)
         Splash
         Swim
+        [DoTheseOnes]
         Witch Cackle (dunno where to use it but ill use it somewhere)
         Witch Capture Sound (figure out what its supposed to be)
-5. Title Screen
+5. [NEED-ART] Title Screen
     Figure out name of game : gourmet run-away :D
     [Make title screen art | do live-action cutscene]
     Start Game Button
     Quit Button
     Credits?
-6. Game Over Screen
+6. [NEED-ART?] Game Over Screen
     Display progress (distance | items)
     Button to main menu
     Button to retry

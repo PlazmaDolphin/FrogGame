@@ -1,18 +1,20 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class WaterMash : MonoBehaviour
 {
-    private float maxSpeed = 2f;
+    private float maxSpeed = 1f;
     private float decayRate = 3f;
-    private float resetSpeedDuration = 0.1f;
+    private float resetSpeedDuration = 0.2f;
     private string lilypadTag = "Lilypad";
     public Collider2D col;
     public Transform frogPos;
+    public AudioSource splashSFX, swimSFX;
 
     private float currentSpeed = 0f;
     private float initSmoothSpeed = 0f;
     public bool submerged = false, stroking = false, recovering = false;
-    private float resetTimer = 0f;
+    private float resetTimer = 5f;
     private float recoverDuration = 0.3f; // How long to jump on lily after submerged
     private float recoverTimer = 0f;
     private float recoverDepth = 0.6f; // How far on lily to jump
@@ -26,11 +28,12 @@ public class WaterMash : MonoBehaviour
     void Update()
     {
         // Begin movement on LMB
-        if (Input.GetMouseButtonDown(0) && !stroking && submerged)
+        if (Input.GetMouseButtonDown(0) && !stroking && submerged && resetTimer >= 0.8f)
         {
             resetTimer = 0f;
             stroking = true;
             initSmoothSpeed = currentSpeed;
+            swimSFX.Play();
         }
 
         // Smooth speed reset
@@ -84,12 +87,12 @@ public class WaterMash : MonoBehaviour
     public bool landCheck(){
         bool onLily = CheckLilyCollision();
         submerged = !onLily;
+        if (submerged) splashSFX.Play();
         if (onLily)
         {
             currentSpeed = 0f;
-            resetTimer = 0f;
+            resetTimer = 2f;
         }
-        Debug.Log("onLily: " + onLily);
         return onLily;
     }
     bool CheckLilyCollision()
@@ -104,6 +107,10 @@ public class WaterMash : MonoBehaviour
             if (hits[i] != null && hits[i].CompareTag(lilypadTag))
             {
                 return true;
+            }
+            if (hits[i] != null && hits[i].CompareTag("winLand"))
+            {
+                SceneManager.LoadScene("victory");
             }
         }
         return false;
