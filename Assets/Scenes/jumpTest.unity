@@ -119,6 +119,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!4 &1141459920 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7069870584884997896, guid: 8c1f5cb8a1db5104385d9b75cd1a1e0a, type: 3}
+  m_PrefabInstance: {fileID: 1663063587}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1220906420
 GameObject:
   m_ObjectHideFlags: 0
@@ -148,8 +153,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a85c9f5fc04a5f4d80d5eb9966d5264, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  chunkGeneratorPrefab: {fileID: 0}
-  player: {fileID: 0}
+  chunkGeneratorPrefab: {fileID: 4342441276806752286, guid: e45a5f8d65837634b97d4f3426df03b4, type: 3}
+  player: {fileID: 1141459920}
 --- !u!4 &1220906422
 Transform:
   m_ObjectHideFlags: 0
@@ -191,11 +196,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7069870584884997896, guid: 8c1f5cb8a1db5104385d9b75cd1a1e0a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -6.35
+      value: -6.29
       objectReference: {fileID: 0}
     - target: {fileID: 7069870584884997896, guid: 8c1f5cb8a1db5104385d9b75cd1a1e0a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.13
+      value: 0.08
       objectReference: {fileID: 0}
     - target: {fileID: 7069870584884997896, guid: 8c1f5cb8a1db5104385d9b75cd1a1e0a, type: 3}
       propertyPath: m_LocalPosition.z
@@ -250,6 +255,7 @@ GameObject:
   - component: {fileID: 2007413147}
   - component: {fileID: 2007413146}
   - component: {fileID: 2007413149}
+  - component: {fileID: 2007413150}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -375,6 +381,19 @@ MonoBehaviour:
     m_MipBias: 0
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
+--- !u!114 &2007413150
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2007413145}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78e2a962460baee49b50691729b52f77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  frogPos: {fileID: 1141459920}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

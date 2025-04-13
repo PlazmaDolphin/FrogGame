@@ -8,7 +8,7 @@ public class TheCamera : MonoBehaviour
     {
         if (frogPos != null)
         {
-            transform.position = new Vector3(frogPos.position.x, frogPos.position.y, transform.position.z);
+            transform.position = new Vector3(frogPos.position.x, frogPos.position.y+0.5f, transform.position.z);
         }
     }
 }

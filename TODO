@@ -17,18 +17,18 @@ FRIDAY OBJECTIVE: Get froggy movement
 5. [DONE] Water Panic Movement
     Mash LMB / RMB in sequence to swim where mouse points
     Add water land / swim anims [SeanDoThis]
-6. Level Generation
+6. [DONE] Level Generation
     Make lilypad Prefab
     Generate random lilypad placement
     Ensure lilypads are spaced far enough apart
-    Tile the background
+    Tile the background [SeanDoThis]
     Generate further than player FOV
     Generate more upon moving to new lily
     Generate in chunks to ensure no overlaps
-    Modify lilypad density and size with distance traveled
-7. Camera Movement (Can move to Saturday)
+    Modify lilypad density and size with distance traveled [Later]
+7. [DONE] Camera Movement (Can move to Saturday)
     (No witch yet so no autoscroll)
-    Either follow player directly or pan camera upon landing
+    Follow player directly
     Debug position Indicator
 
 ----- SPRITE CHECKLIST FRIDAY -----

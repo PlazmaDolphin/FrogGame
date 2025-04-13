@@ -15,7 +15,7 @@ public class WaterMash : MonoBehaviour
     private float resetTimer = 0f;
     private float recoverDuration = 0.3f; // How long to jump on lily after submerged
     private float recoverTimer = 0f;
-    private float recoverDepth = 0.3f; // How far on lily to jump
+    private float recoverDepth = 0.6f; // How far on lily to jump
     private Vector3 initPos = Vector3.zero;
     private Vector3 recoverTarget = Vector3.zero;
 

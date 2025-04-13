@@ -9,7 +9,7 @@ public class RingExpander : MonoBehaviour
     private float thickness = 0.05f;
     private int segments = 100;
     private float expandSpeed = 1.6f;
-    private float maxRadius = 3f;
+    private float maxRadius = 2.5f;
 
     private float radius = 0f;
     private bool expanding = false;

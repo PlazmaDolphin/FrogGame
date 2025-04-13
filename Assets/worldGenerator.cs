@@ -1,10 +1,12 @@
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class WorldGenerator : MonoBehaviour
 {
     public GameObject chunkGeneratorPrefab;
     public Transform player;
+    public TextMeshProUGUI statusText;
     private Vector2 chunkSize = new Vector2(20f, 10f);
 
     private Dictionary<Vector2Int, GameObject> activeChunks = new Dictionary<Vector2Int, GameObject>();
@@ -25,6 +27,7 @@ public class WorldGenerator : MonoBehaviour
             GenerateChunksAround(currentPlayerChunk);
             RemoveDistantChunks(currentPlayerChunk);
         }
+        UpdateStatusText();
     }
 
     Vector2Int GetChunkCoord(Vector3 position)
@@ -73,6 +76,12 @@ public class WorldGenerator : MonoBehaviour
             Debug.Log("Destroying chunk at: " + chunkCoord);
             Destroy(activeChunks[chunkCoord]);
             activeChunks.Remove(chunkCoord);
+        }
+    }
+    void UpdateStatusText(){
+        if (statusText != null && player != null)
+        {
+            statusText.text = $"At chunk ({currentPlayerChunk.x},{currentPlayerChunk.y})\nYou have traveled {player.position.x:F1} units";
         }
     }
 }
