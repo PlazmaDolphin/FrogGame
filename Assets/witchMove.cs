@@ -1,6 +1,6 @@
 using TMPro;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class WitchMove : MonoBehaviour
 {
     public Transform player;
@@ -9,6 +9,8 @@ public class WitchMove : MonoBehaviour
     private float cameraSwitchOnDistance = 9f;
     private float cameraFollowDistance = 7.6f;
     private float cameraSwitchOffDistance = 10f;
+    private float farOn = 18f, farOff = 15f;
+    private bool far = false;
     private float maxDistance = 25f;
     public AudioSource BG1;
     public AudioSource BG2;
@@ -24,6 +26,7 @@ public class WitchMove : MonoBehaviour
     void Start()
     {
         initialCameraZ = mainCamera.transform.position.z;
+        Time.timeScale = 1f; // Ensure time scale is normal at start
     }
 
     void Update()
@@ -42,11 +45,13 @@ public class WitchMove : MonoBehaviour
         // Lerp to player's Y position quickly
         pos.y = Mathf.Lerp(pos.y, player.position.y, yFollowSpeed * Time.deltaTime);
         transform.position = pos;
+        far = xDist >= farOn ? true : far;
+        far = xDist < farOff ? false : far;
 
         // Audio logic based on horizontal distance
 
-        BG1.enabled = xDist >= 18f;
-        BG2.enabled = xDist < 18f && !cameraLocked;
+        BG1.enabled = far;
+        BG2.enabled = !far && !cameraLocked;
         BG3.enabled = cameraLocked;
         distanceTxt.text = "Witch Distance: " + xDist.ToString("F2") + "m";
 
@@ -79,6 +84,7 @@ public class WitchMove : MonoBehaviour
         {
             gameOverTxt.gameObject.SetActive(true);
             Time.timeScale = 0f; // Pause the game
+            SceneManager.LoadScene("gameOver"); // Load the game over scene
         }
     }
     bool CheckPlayerCollision()

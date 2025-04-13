@@ -5,14 +5,13 @@ public class ChunkGenerator : MonoBehaviour
 {
     public GameObject theLilypad;
     private Vector2 areaSize = new Vector2(20f, 10f);
-    public static float density = 10; // Number of lilypads to spawn
     public int maxAttemptsPerLilypad = 20;
     public float meanScale = 1f;
     public float scaleStdDev = 0.2f;
 
-    public void Start()
+    public void generateChunk(int density)
     {
-        for (int i = 0; i < Mathf.RoundToInt(density); i++)
+        for (int i = 0; i < density; i++)
         {
             bool placed = false;
             for (int attempt = 0; attempt < maxAttemptsPerLilypad && !placed; attempt++)

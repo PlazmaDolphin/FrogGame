@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Lilypad
   - lilypadSpawnRepel
+  - winLand
   layers:
   - Default
   - TransparentFX

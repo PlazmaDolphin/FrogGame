@@ -50,7 +50,7 @@ SATURDAY OBJECTIVE: Get Barebones Game
 2. [DONE] Camera Witch movement
     When witch approaching, sidescroll to reveal more level to the right
     If witch outside of screen, [put witch as a faraway icon | indicate distance via audio later on]
-3. Win condition
+3. [DONE] Win condition
     Achieve some distance, OR
     No win condition, OR
     Get to a special point, OR
@@ -67,13 +67,13 @@ SATURDAY OBJECTIVE: Get Barebones Game
         [DoTheseOnes]
         Witch Cackle (dunno where to use it but ill use it somewhere)
         Witch Capture Sound (figure out what its supposed to be)
-5. Title Screen
+5. [NEED-ART] Title Screen
     Figure out name of game : gourmet run-away :D
     [Make title screen art | do live-action cutscene]
     Start Game Button
     Quit Button
     Credits?
-6. Game Over Screen
+6. [NEED-ART?] Game Over Screen
     Display progress (distance | items)
     Button to main menu
     Button to retry

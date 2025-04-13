@@ -1,6 +1,5 @@
-using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class WaterMash : MonoBehaviour
 {
@@ -108,6 +107,10 @@ public class WaterMash : MonoBehaviour
             if (hits[i] != null && hits[i].CompareTag(lilypadTag))
             {
                 return true;
+            }
+            if (hits[i] != null && hits[i].CompareTag("winLand"))
+            {
+                SceneManager.LoadScene("victory");
             }
         }
         return false;

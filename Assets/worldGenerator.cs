@@ -4,13 +4,14 @@ using UnityEngine;
 
 public class WorldGenerator : MonoBehaviour
 {
-    public GameObject chunkGeneratorPrefab;
+    public GameObject chunkGeneratorPrefab, landPrefab;
     public Transform player;
     public TextMeshProUGUI statusText;
     private Vector2 chunkSize = new Vector2(20f, 10f);
 
     private Dictionary<Vector2Int, GameObject> activeChunks = new Dictionary<Vector2Int, GameObject>();
     private Vector2Int currentPlayerChunk;
+    private int GameEndChunk = 3; // Adjust to make game longer or shorter
 
     void Start()
     {
@@ -51,7 +52,22 @@ public class WorldGenerator : MonoBehaviour
                         chunkCoord.y * chunkSize.y,
                         0f
                     );
-                    GameObject chunk = Instantiate(chunkGeneratorPrefab, spawnPosition, Quaternion.identity);
+                    GameObject chunk;
+                    if (chunkCoord.x < GameEndChunk) chunk = Instantiate(chunkGeneratorPrefab, spawnPosition, Quaternion.identity);
+                    else chunk = Instantiate(landPrefab, spawnPosition, Quaternion.identity);
+                    int density=0;
+                    //Adjust density based on chunk's x value (0-2: 12, 3-5: 10, etc)
+                    if (chunkCoord.x >= GameEndChunk) density = 0; 
+                    else if (chunkCoord.x < 2)
+                        density = 12;
+                    else if (chunkCoord.x < 4)
+                        density = 9;
+                    else if (chunkCoord.x < 6)
+                        density = 6;
+                    else if (chunkCoord.x < 8)
+                        density = 4; // Adjust as needed for further chunks
+                    Debug.Log("Generating chunk at: " + chunkCoord + " with density: " + density);
+                    chunk.GetComponent<ChunkGenerator>().generateChunk(density); // Adjust density as needed
                     activeChunks[chunkCoord] = chunk;
                 }
             }
