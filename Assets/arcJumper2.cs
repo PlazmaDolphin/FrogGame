@@ -4,6 +4,7 @@ public class arcJumper2 : MonoBehaviour
 {
     public WaterMash2 waterMash;
     public theEnergyBar energy;
+    public Animator frogAnimator; // Assign the frog animator in the Inspector
     private float baseJumpDuration = 0.5f;
     private float baseArcHeight = 0.2f;
     private float heightMultiplier = 0.25f;
@@ -54,6 +55,7 @@ public class arcJumper2 : MonoBehaviour
 
         jumpTarget.position = flatPosition;
         energy.slideEnergy(easedT);
+        frogAnimator.SetFloat("jumpProgress", easedT);
 
         if (t >= 1f)
         {
@@ -61,6 +63,7 @@ public class arcJumper2 : MonoBehaviour
             jumpTarget.position = end;
             waterMash.landCheck(); // Check if the frog is on a lily pad after the jump
             energy.setActive(false);
+            frogAnimator.SetTrigger("land"); // Trigger the landing animation
         }
     }
 }

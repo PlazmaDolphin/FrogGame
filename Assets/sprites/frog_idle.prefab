@@ -686,6 +686,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: frog_idle
       objectReference: {fileID: 0}
+    - target: {fileID: 1160356261127867848, guid: db89c57c5ca162345a4dc0bc45e12d8d, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 0881981d290a9104e873163d68ca465c, type: 2}
     - target: {fileID: 7878350319992209165, guid: db89c57c5ca162345a4dc0bc45e12d8d, type: 3}
       propertyPath: m_LocalScale.x
       value: 2.3
