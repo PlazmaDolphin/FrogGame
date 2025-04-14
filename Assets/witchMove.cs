@@ -4,7 +4,8 @@ using UnityEngine.SceneManagement;
 public class WitchMove : MonoBehaviour
 {
     public Transform player;
-    private float xSpeed = 1.5f;
+    private float xSpeedOnScreen = 1f, xSpeedOffScreen = 1.2f;
+    private float accelPerMinute = 0.25f, gameStart = 0f;
     public float yFollowSpeed = 10f;
     private float cameraSwitchOnDistance = 9f;
     private float cameraFollowDistance = 7.6f;
@@ -27,12 +28,13 @@ public class WitchMove : MonoBehaviour
     {
         initialCameraZ = mainCamera.transform.position.z;
         Time.timeScale = 1f; // Ensure time scale is normal at start
+        gameStart = Time.time; // Record the time when the game starts
     }
 
     void Update()
     {
         // Move right constantly
-        transform.position += Vector3.right * xSpeed * Time.deltaTime;
+        transform.position += Vector3.right * ((far ? xSpeedOffScreen : xSpeedOnScreen)+ accelPerMinute*(Time.time-gameStart)/60) * Time.deltaTime;
         // Clamp X position to max distance from player
         float xDist = Mathf.Abs(transform.position.x - player.position.x);
         Vector3 pos = transform.position;

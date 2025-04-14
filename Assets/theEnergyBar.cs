@@ -6,7 +6,7 @@ public class theEnergyBar : MonoBehaviour
     public AudioSource croakSFX;
     public bool isActive = false; // Indicates if the energy bar is being used
     public float energy = 1f, hint = 1f, prevLvl = 1f; // Current energy level (0 to 1)
-    private float croakPower = 0.05f;
+    private float croakPower = 0.1f;
     private float croakCooldown = 0.33f;
     private float croakStartTime = 0f;
     private bool croaking = false; // Indicates if the croak action is in progress
@@ -17,10 +17,10 @@ public class theEnergyBar : MonoBehaviour
     }
     public bool useEnergy(float amount)
     {
-        if (energy-amount < 0f) return false; // Not enough energy
+        bool enough = energy-amount < 0f;
         energy -= amount; // Decrease energy by the specified amount
         hint -= amount; // Decrease hint by the same amount
-        return true; // Energy used successfully
+        return enough; // Energy used successfully
     }
     public void slideEnergy(float percent){
         energy = hint + (prevLvl-hint)*(1f-percent);

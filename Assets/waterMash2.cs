@@ -30,7 +30,7 @@ public class WaterMash2 : MonoBehaviour
     void Update()
     {
         // Begin movement on LMB
-        if (Input.GetMouseButtonDown(0) && !stroking && submerged && resetTimer >= 0.8f && energy.energy > 0f)
+        if (Input.GetMouseButtonDown(0) && !stroking && submerged && resetTimer >= 0.8f && energy.energy > 0.001f)
         {
             energy.useEnergy(swimCost);
             energy.isActive = true;
