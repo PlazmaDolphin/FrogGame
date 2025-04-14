@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using TMPro;
+using UnityEngine.UI;
 using UnityEngine;
 
 public class WorldGenerator : MonoBehaviour
@@ -7,6 +8,8 @@ public class WorldGenerator : MonoBehaviour
     public GameObject chunkGeneratorPrefab, landPrefab;
     public Transform player;
     public TextMeshProUGUI statusText;
+    public Sprite free0, free1, free2, free3, free4, free5, free6, free7;
+    public Image freedomBar;
     private Vector2 chunkSize = new Vector2(20f, 10f);
 
     private Dictionary<Vector2Int, GameObject> activeChunks = new Dictionary<Vector2Int, GameObject>();
@@ -29,6 +32,42 @@ public class WorldGenerator : MonoBehaviour
             RemoveDistantChunks(currentPlayerChunk);
         }
         UpdateStatusText();
+        UpdateFreedomBar();
+    }
+
+    void UpdateFreedomBar(){
+        //get x chunk coord of player
+        int x = currentPlayerChunk.x;
+        if(x < 0) x = 0;
+        if(x > 7) x = 7;
+        //set sprite based on x chunk coord
+        switch (x)
+        {
+            case 0:
+                freedomBar.sprite = free0;
+                break;
+            case 1:
+                freedomBar.sprite = free1;
+                break;
+            case 2:
+                freedomBar.sprite = free2;
+                break;
+            case 3:
+                freedomBar.sprite = free3;
+                break;
+            case 4:
+                freedomBar.sprite = free4;
+                break;
+            case 5:
+                freedomBar.sprite = free5;
+                break;
+            case 6:
+                freedomBar.sprite = free6;
+                break;
+            case 7:
+                freedomBar.sprite = free7;
+                break;
+        }
     }
 
     Vector2Int GetChunkCoord(Vector3 position)

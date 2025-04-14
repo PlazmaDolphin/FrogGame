@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 152c7f2862ef3f24fac7fd8b4388aadf
+guid: 06786f1e9e4221a4fad33db0d0a5a41c
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -123,7 +123,7 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
   animatedSpriteImportData:
-  - name: land
+  - name: win screen
     originalName: 
     pivot: {x: 0.5, y: 0}
     alignment: 9
@@ -133,9 +133,9 @@ ScriptedImporter:
       serializedVersion: 2
       x: 4
       y: 4
-      width: 854
-      height: 480
-    spriteID: 30d4cfc2b1173ac4e9e388ef2343db66
+      width: 640
+      height: 360
+    spriteID: 787ae3c61f60f844d886d4b0269cbe5b
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -147,21 +147,21 @@ ScriptedImporter:
   spriteSheetImportData: []
   asepriteLayers:
   - layerIndex: 0
-    guid: 762134823
-    name: land
+    guid: -416073204
+    name: win screen
     layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: land
+    - name: win screen
       frameIndex: 0
       additiveSortOrder: 0
       cellRect:
         x: 0
         y: 0
-        width: 854
-        height: 480
-      spriteId: 30d4cfc2b1173ac4e9e388ef2343db66
+        width: 640
+        height: 360
+      spriteId: 787ae3c61f60f844d886d4b0269cbe5b
     linkedCells: []
     parentIndex: -1
   platformSettings:
@@ -180,5 +180,5 @@ ScriptedImporter:
   generatePhysicsShape: 0
   secondarySpriteTextures: []
   spritePackingTag: 
-  canvasSize: {x: 854, y: 480}
+  canvasSize: {x: 640, y: 360}
   previousTextureSize: {x: 1024, y: 512}
