@@ -549,6 +549,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waterMash: {fileID: 5924895126577216809}
   energy: {fileID: 1835981999969516322}
+  frogAnimator: {fileID: 2257101478874881485}
   control: {fileID: 7069870584884997896}
 --- !u!114 &6962308188452576484
 MonoBehaviour:
@@ -570,6 +571,7 @@ MonoBehaviour:
   chargeSFX: {fileID: 6044121812442295841}
   jumpSFX: {fileID: 3331630112803751939}
   energy: {fileID: 1835981999969516322}
+  frogAnimator: {fileID: 2257101478874881485}
 --- !u!114 &5924895126577216809
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1305,6 +1307,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: frog_idle 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1160356261127867848, guid: db89c57c5ca162345a4dc0bc45e12d8d, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 0881981d290a9104e873163d68ca465c, type: 2}
     - target: {fileID: 7878350319992209165, guid: db89c57c5ca162345a4dc0bc45e12d8d, type: 3}
       propertyPath: m_LocalScale.x
       value: 2.3
@@ -1375,6 +1381,11 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 8276999322820638629}
   m_SourcePrefab: {fileID: -8435245712485981826, guid: db89c57c5ca162345a4dc0bc45e12d8d, type: 3}
+--- !u!95 &2257101478874881485 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 1160356261127867848, guid: db89c57c5ca162345a4dc0bc45e12d8d, type: 3}
+  m_PrefabInstance: {fileID: 1101336856726196229}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &7069870584884997896 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7878350319992209165, guid: db89c57c5ca162345a4dc0bc45e12d8d, type: 3}

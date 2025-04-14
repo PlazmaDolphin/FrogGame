@@ -8,6 +8,7 @@ public class RingExpander2 : MonoBehaviour
     public WaterMash2 waterMash; // Assign the water mash script in the Inspector
     public AudioSource chargeSFX, jumpSFX;
     public theEnergyBar energy;
+    public Animator frogAnimator; // Assign the frog animator in the Inspector
     private float energyCostMultiplier = 0.08f; // Multiplier for energy cost based on distance
     private float thickness = 0.05f;
     private int segments = 100;
@@ -46,6 +47,7 @@ public class RingExpander2 : MonoBehaviour
             UpdateRing();
             if (chargeSFX != null) chargeSFX.Play();
             energy.setActive(true);
+            frogAnimator.SetTrigger("charge");
         }
 
         if (expanding)
@@ -68,6 +70,7 @@ public class RingExpander2 : MonoBehaviour
                     jumper.StartJump(frogPos, target);
                     if (jumpSFX != null) jumpSFX.Play();
                     if (chargeSFX != null) chargeSFX.Stop();
+                    frogAnimator.SetTrigger("jump");
                 }
                 else{
                     // reset hint
