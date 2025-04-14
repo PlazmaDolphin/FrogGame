@@ -1,8 +1,9 @@
 using UnityEngine;
 
-public class arcJumper : MonoBehaviour
+public class arcJumper2 : MonoBehaviour
 {
-    public WaterMash waterMash;
+    public WaterMash2 waterMash;
+    public theEnergyBar energy;
     private float baseJumpDuration = 0.5f;
     private float baseArcHeight = 0.2f;
     private float heightMultiplier = 0.25f;
@@ -39,15 +40,6 @@ public class arcJumper : MonoBehaviour
 
     void Update()
     {
-        // Debug: Right Mouse Button initiates jump to mouse
-        if (Input.GetMouseButtonDown(1))
-        {
-            Vector3 mousePos = Input.mousePosition;
-            mousePos.z = Mathf.Abs(Camera.main.transform.position.z);
-            Vector3 worldPos = Camera.main.ScreenToWorldPoint(mousePos);
-
-            StartJump(control, worldPos);
-        }
 
         if (!jumping || jumpTarget == null)
             return;
@@ -61,12 +53,14 @@ public class arcJumper : MonoBehaviour
         flatPosition.y += heightOffset;
 
         jumpTarget.position = flatPosition;
+        energy.slideEnergy(easedT);
 
         if (t >= 1f)
         {
             jumping = false;
             jumpTarget.position = end;
             waterMash.landCheck(); // Check if the frog is on a lily pad after the jump
+            energy.setActive(false);
         }
     }
 }

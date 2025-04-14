@@ -1,15 +1,19 @@
 using UnityEngine;
 
-public class RingExpander : MonoBehaviour
+public class RingExpander2 : MonoBehaviour
 {
     public LineRenderer lineRenderer;
     public Transform directionIndicator, frogPos; // Assign a small circle sprite in the Inspector
-    public arcJumper jumper;
-    public WaterMash waterMash; // Assign the water mash script in the Inspector
+    public arcJumper2 jumper;
+    public WaterMash2 waterMash; // Assign the water mash script in the Inspector
     public AudioSource chargeSFX, jumpSFX;
+    public theEnergyBar energy;
+    private float energyCostMultiplier = 0.08f; // Multiplier for energy cost based on distance
     private float thickness = 0.05f;
     private int segments = 100;
     private float expandSpeed = 1.6f;
+    bool weHaveEnergy = true; // When you have energy
+    private float expandSpeedSlow = 0.5f; // When you run out of energy
     private float maxRadius = 2.5f;
 
     private float radius = 0f;
@@ -29,7 +33,7 @@ public class RingExpander : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0) && !jumper.IsJumping() && !waterMash.submerged){
+        if (Input.GetMouseButtonDown(0) && !jumper.IsJumping() && !waterMash.submerged && !energy.isActive){
             Vector3 mousePos = Input.mousePosition;
             mousePos.z = Mathf.Abs(Camera.main.transform.position.z);
             startPos = transform.position;
@@ -41,12 +45,14 @@ public class RingExpander : MonoBehaviour
             lineRenderer.endColor = new Color(0.2f, 0.2f, 0.2f, 0.5f); // Transparent grey
             UpdateRing();
             if (chargeSFX != null) chargeSFX.Play();
+            energy.setActive(true);
         }
 
         if (expanding)
         {
-            radius += expandSpeed * Time.deltaTime;
-
+            radius += (weHaveEnergy ? expandSpeed : expandSpeedSlow) * Time.deltaTime;
+            weHaveEnergy = energy.useHint(radius*energyCostMultiplier);
+            // FIXME Add special logic for if jump would use up all energy
             Vector3 mouseWorld = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             float angle = Mathf.Atan2(mouseWorld.y - startPos.y, mouseWorld.x - startPos.x) * Mathf.Rad2Deg;
             if (radius >= maxRadius || Input.GetMouseButtonUp(0)) //go ahead and jump (jump!)
@@ -62,6 +68,11 @@ public class RingExpander : MonoBehaviour
                     jumper.StartJump(frogPos, target);
                     if (jumpSFX != null) jumpSFX.Play();
                     if (chargeSFX != null) chargeSFX.Stop();
+                }
+                else{
+                    // reset hint
+                    energy.useHint(0f);
+                    energy.setActive(false); // Set the energy bar to inactive state
                 }
             }
             else if (radius >= maxRadius * 0.85f){
