@@ -11,7 +11,7 @@ public class WorldGenerator : MonoBehaviour
 
     private Dictionary<Vector2Int, GameObject> activeChunks = new Dictionary<Vector2Int, GameObject>();
     private Vector2Int currentPlayerChunk;
-    private int GameEndChunk = 3; // Adjust to make game longer or shorter
+    private int GameEndChunk = 7; // Adjust to make game longer or shorter
 
     void Start()
     {
