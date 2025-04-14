@@ -586,6 +586,7 @@ MonoBehaviour:
   frogPos: {fileID: 7069870584884997896}
   splashSFX: {fileID: 85984835361943014}
   swimSFX: {fileID: 5480934206554671500}
+  energy: {fileID: 1835981999969516322}
   submerged: 0
   stroking: 0
   recovering: 0

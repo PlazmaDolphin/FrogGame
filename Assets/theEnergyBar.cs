@@ -48,17 +48,20 @@ public class theEnergyBar : MonoBehaviour
         energyBar.localScale = new Vector3(1f, energy, 1f); // Update the energy bar scale based on current energy
         hintBar.localScale = new Vector3(1f, hint, 1f); // Update the hint bar scale based on current hint
         // Listen for RMB to croak (gain energy)
+                // Give control back when done croaking
+        if (Time.time - croakStartTime >= croakCooldown && croaking){
+            croaking = false; // Reset the croaking state
+            setActive(false); // Set the energy bar to inactive state
+        }
+        else if (croaking){
+            setActive(true); // Keep the energy bar active while croaking
+        }
         if (Input.GetMouseButtonDown(1) && !isActive){
             croakStartTime = Time.time; // Record the time when the croak starts
             gainEnergy(croakPower); // Gain energy when croaking
             setActive(true); // Set the energy bar to active state
             croaking = true; // Set the croaking state to true
             if (croakSFX != null) croakSFX.Play(); // Play the croak sound effect
-        }
-        // Give control back when done croaking
-        if (Time.time - croakStartTime >= croakCooldown && croaking){
-            croaking = false; // Reset the croaking state
-            setActive(false); // Set the energy bar to inactive state
         }
     }
 }

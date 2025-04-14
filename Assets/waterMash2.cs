@@ -6,10 +6,12 @@ public class WaterMash2 : MonoBehaviour
     private float maxSpeed = 1f;
     private float decayRate = 3f;
     private float resetSpeedDuration = 0.2f;
+    private float swimCost = 0.02f, maxCroakSpeed = 0.1f;
     private string lilypadTag = "Lilypad";
     public Collider2D col;
     public Transform frogPos;
     public AudioSource splashSFX, swimSFX;
+    public theEnergyBar energy;
 
     private float currentSpeed = 0f;
     private float initSmoothSpeed = 0f;
@@ -28,8 +30,10 @@ public class WaterMash2 : MonoBehaviour
     void Update()
     {
         // Begin movement on LMB
-        if (Input.GetMouseButtonDown(0) && !stroking && submerged && resetTimer >= 0.8f)
+        if (Input.GetMouseButtonDown(0) && !stroking && submerged && resetTimer >= 0.8f && energy.energy > 0f)
         {
+            energy.useEnergy(swimCost);
+            energy.isActive = true;
             resetTimer = 0f;
             stroking = true;
             initSmoothSpeed = currentSpeed;
@@ -56,9 +60,10 @@ public class WaterMash2 : MonoBehaviour
             frogPos.position += direction * currentSpeed * Time.deltaTime;
 
             currentSpeed *= Mathf.Exp(-decayRate * Time.deltaTime);
-
+            if (currentSpeed < maxCroakSpeed && !stroking) energy.isActive = false;
             if (CheckLilyCollision())
             {
+                energy.isActive = true; // No croaks when recovering
                 Debug.Log("Unsubmerging");
                 submerged = false;
                 currentSpeed = 0f;
@@ -80,6 +85,7 @@ public class WaterMash2 : MonoBehaviour
                 recovering = false;
                 currentSpeed = 0f;
                 recoverTimer = 0f;
+                energy.isActive = false; // Reset energy bar
             }
         }
 
