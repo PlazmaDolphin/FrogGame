@@ -12,7 +12,7 @@ public class RingExpander2 : MonoBehaviour
     private float energyCostMultiplier = 0.08f; // Multiplier for energy cost based on distance
     private float thickness = 0.05f;
     private int segments = 100;
-    private float expandSpeed = 1.6f;
+    private float expandSpeed = 1.62f;
     bool weHaveEnergy = true; // When you have energy
     private float expandSpeedSlow = 0.5f; // When you run out of energy
     private float maxRadius = 2.5f;

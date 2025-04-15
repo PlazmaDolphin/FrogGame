@@ -37,7 +37,7 @@ public class WorldGenerator : MonoBehaviour
 
     void UpdateFreedomBar(){
         //get x chunk coord of player
-        int x = currentPlayerChunk.x;
+        int x = Mathf.FloorToInt((player.position.x + chunkSize.x/2f) / chunkSize.x);
         if(x < 0) x = 0;
         if(x > 7) x = 7;
         //set sprite based on x chunk coord
@@ -92,7 +92,7 @@ public class WorldGenerator : MonoBehaviour
                         0f
                     );
                     GameObject chunk;
-                    if (chunkCoord.x < GameEndChunk) chunk = Instantiate(chunkGeneratorPrefab, spawnPosition, Quaternion.identity);
+                    if (chunkCoord.x != GameEndChunk) chunk = Instantiate(chunkGeneratorPrefab, spawnPosition, Quaternion.identity);
                     else chunk = Instantiate(landPrefab, spawnPosition, Quaternion.identity);
                     int density=0;
                     //Adjust density based on chunk's x value (0-2: 12, 3-5: 10, etc)
@@ -100,9 +100,9 @@ public class WorldGenerator : MonoBehaviour
                     else if (chunkCoord.x < 2)
                         density = 12;
                     else if (chunkCoord.x < 4)
-                        density = 9;
+                        density = 8;
                     else if (chunkCoord.x < 6)
-                        density = 6;
+                        density = 4;
                     else if (chunkCoord.x < 8)
                         density = 4; // Adjust as needed for further chunks
                     Debug.Log("Generating chunk at: " + chunkCoord + " with density: " + density);

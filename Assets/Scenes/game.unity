@@ -793,6 +793,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1835981999969516322, guid: e71f757f0562b444bbd6883f3009e580, type: 3}
+      propertyPath: energyText
+      value: 
+      objectReference: {fileID: 1332701203}
     - target: {fileID: 7069870584884997896, guid: e71f757f0562b444bbd6883f3009e580, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.056
@@ -918,7 +922,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 295}
+  m_AnchoredPosition: {x: 0, y: 324.04}
   m_SizeDelta: {x: 413.9885, y: 71.5957}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1220906420
@@ -1160,6 +1164,17 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!114 &1332701203 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6557461422737722241, guid: e71f757f0562b444bbd6883f3009e580, type: 3}
+  m_PrefabInstance: {fileID: 1098859749}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1367770925
 GameObject:
   m_ObjectHideFlags: 0

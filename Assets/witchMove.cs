@@ -4,15 +4,15 @@ using UnityEngine.SceneManagement;
 public class WitchMove : MonoBehaviour
 {
     public Transform player;
-    private float xSpeedOnScreen = 1f, xSpeedOffScreen = 1.2f;
-    private float accelPerMinute = 0.25f, gameStart = 0f;
-    public float yFollowSpeed = 10f;
+    private float xSpeedOnScreen = 0.9f, xSpeedOffScreen = 1.6f;
+    private float accelonScreen = 0.015f;
+    public float yFollowSpeed = 5f;
     private float cameraSwitchOnDistance = 9f;
     private float cameraFollowDistance = 7.6f;
     private float cameraSwitchOffDistance = 10f;
-    private float farOn = 18f, farOff = 15f;
+    private float farOn = 17f, farOff = 15f;
     private bool far = false;
-    private float maxDistance = 25f;
+    private float maxDistance = 20f;
     public AudioSource BG1;
     public AudioSource BG2;
     public AudioSource BG3;
@@ -28,13 +28,13 @@ public class WitchMove : MonoBehaviour
     {
         initialCameraZ = mainCamera.transform.position.z;
         Time.timeScale = 1f; // Ensure time scale is normal at start
-        gameStart = Time.time; // Record the time when the game starts
     }
 
     void Update()
     {
+        xSpeedOnScreen += cameraLocked ? accelonScreen * Time.deltaTime : 0; // Increase speed over time
         // Move right constantly
-        transform.position += Vector3.right * ((far ? xSpeedOffScreen : xSpeedOnScreen)+ accelPerMinute*(Time.time-gameStart)/60) * Time.deltaTime;
+        transform.position += Vector3.right * (cameraLocked ? xSpeedOnScreen : xSpeedOffScreen) * Time.deltaTime;
         // Clamp X position to max distance from player
         float xDist = Mathf.Abs(transform.position.x - player.position.x);
         Vector3 pos = transform.position;

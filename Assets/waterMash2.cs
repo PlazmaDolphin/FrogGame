@@ -3,10 +3,10 @@ using UnityEngine.SceneManagement;
 
 public class WaterMash2 : MonoBehaviour
 {
-    private float maxSpeed = 1f;
-    private float decayRate = 3f;
-    private float resetSpeedDuration = 0.2f;
-    private float swimCost = 0.02f, maxCroakSpeed = 0.1f;
+    private float maxSpeed = 1.2f;
+    private float decayRate = 2f;
+    private float resetSpeedDuration = 0.16f;
+    private float swimCost = 0.03f, maxCroakSpeed = 0.5f;
     private string lilypadTag = "Lilypad";
     public Collider2D col;
     public Transform frogPos;
